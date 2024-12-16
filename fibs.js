@@ -45,6 +45,7 @@ function fib(n, memoization = {}) {
   if( n < 1 ) { // error/base case
     return 0
   } 
+//   I added a memoization object to store the previous values.
   
   if( n === 1 || n === 2 ) { // base case
     return 1
@@ -52,11 +53,13 @@ function fib(n, memoization = {}) {
   if (memoization [n]) {
       return memoization [n]
       }
+//   Added this conditional to check if the result is already in memoization.
   
   memoization[n] = fib(n-1, memoization) + fib(n-2, memoization)
   // return fib(n-1) + fib(n-2)
   return memoization[n]
 }
+// This part stores the result in memoization before returning.
 
 /*
 fib(44) = fib(43) + fib(42)
